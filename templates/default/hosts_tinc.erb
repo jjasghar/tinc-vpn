@@ -1,0 +1,4 @@
+<% #Ultimately, this file will be used on other servers to communicate with this server. The address specifies how other nodes will connect to this server, and the subnet specifies which subnet this daemon will serve. %>
+
+Address = <%= node['ipaddress'] %>
+Subnet = <%= node['tinc']['ip'] %>/<%= node['tinc']['subnet'] %>

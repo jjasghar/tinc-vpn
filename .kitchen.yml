@@ -1,0 +1,30 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: ubuntu-14.04
+  - name: ubuntu-16.04
+  - name: centos-7.1
+
+suites:
+  - name: default
+    run_list:
+      - recipe[tinc-vpn::default]
+    attributes:
+
+  - name: seed
+    run_list:
+      - recipe[tinc-vpn::seed_default]
+    attributes:
+
+  - name: leaf
+    run_list:
+      - recipe[tinc-vpn::leaf_default]
+    attributes:
