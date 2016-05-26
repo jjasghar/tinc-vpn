@@ -23,6 +23,7 @@ directory "/etc/tinc/#{netname}/hosts" do
   group "root"
   mode "0755"
   action :create
+  recursive true
 end
 
 # template for configuration

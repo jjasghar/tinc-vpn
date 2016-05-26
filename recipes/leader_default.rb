@@ -33,12 +33,18 @@ directory "/etc/tinc/#{netname}/hosts" do
   action :create
 end
 
+connect_node = search(:node, 'recipes:"tinc-vpn::seed_default"',
+  :filter_result => 'ipaddress'
+      )
+end
+
 # template for configuration
 template "/etc/tinc/#{netname}/tinc.conf" do
   source "tinc.conf.erb"
   owner "root"
   group "root"
   mode "0644"
+  variables connectTo: connect_node
 end
 
 # the hosts file for the network

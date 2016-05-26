@@ -1,0 +1,11 @@
+{
+  "name": "node1",
+  "chef_type": "node",
+  "json_class": "Chef::Node",
+  "chef_environment": "_default",
+  "run_list": ["tinc-vpn::leaf_default"],
+  "automatic": {
+    "ipaddress": "172.31.17.101",
+    "hostname": "ip-172-31-17-101"
+  }
+}
