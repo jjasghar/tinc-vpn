@@ -1,0 +1,9 @@
+{
+  "id": "leader",
+  "keys": {
+    "private":"some_private_key",
+    "public": "some_public_key"
+  },
+  "name": "name",
+  "subnet": "X.y.z.a/bc"
+}

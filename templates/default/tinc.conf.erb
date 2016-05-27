@@ -1,3 +1,6 @@
-Name = <%= node['hostname']%>
+Name = <%= node['hostname'] %>
 AddressFamily = ipv4
 Interface = <%= node['tinc']['interface'] %>
+<% if @connectTo -%>
+  ConnectTo=<%= @connectTo %>
+<% end -%>
