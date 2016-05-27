@@ -15,6 +15,9 @@ all_data.each do |n|
   if this_node['hostname'] == hostname
     node_data = this_node
   end
+  if this_node['leader'] == true
+    leader_node = data_bag_item('tinc_followers', n)
+  end
 end
 
 include_recipe "tinc-vpn::bootstrap" unless node_data['hostname']
@@ -40,13 +43,19 @@ directory "/etc/tinc/#{netname}/hosts" do
   recursive true
 end
 
+if node_data['leader'] == false
+  leader_name = leader_node['name']
+else
+  leader_name = 'self'
+end
+
 # template for configuration
 template "/etc/tinc/#{netname}/tinc.conf" do
   source "tinc.conf.erb"
   owner "root"
   group "root"
   mode "0644"
-  variables({:leader_name => leader_node['name'],
+  variables({:leader_name => leader_name,
     :node_name => node_data['name']})
 end
 
