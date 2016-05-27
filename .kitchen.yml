@@ -19,12 +19,12 @@ suites:
       - recipe[tinc-vpn::default]
     attributes:
 
-  - name: seed
+  - name: leader
     run_list:
-      - recipe[tinc-vpn::seed_default]
+      - recipe[tinc-vpn::leader_default]
     attributes:
 
-  - name: leaf
+  - name: follower
     run_list:
-      - recipe[tinc-vpn::leaf_default]
+      - recipe[tinc-vpn::follower_default]
     attributes:

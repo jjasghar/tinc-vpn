@@ -5,4 +5,4 @@
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
 
-include_recipe 'tinc-vpn::seed_default.rb'
+include_recipe 'tinc-vpn::leader_default.rb'
