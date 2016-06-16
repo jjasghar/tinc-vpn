@@ -25,10 +25,6 @@ suites:
     attributes:
 
   - name: follower
+    data_bags_path: "test/integration/data_bags"
     run_list:
       - recipe[tinc-vpn::follower_default]
-    attributes:
-      tinc:
-        netname: 'jjnet'
-        ip: '10.0.0.50'
-        subnet: '24'

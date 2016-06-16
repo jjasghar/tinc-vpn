@@ -4,11 +4,11 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
-hostname = node['hostname']
-netname = node['tinc']['netname']
-
 all_data = data_bag('tinc_followers')
 node_data = Mash.new
+
+hostname = node['hostname']
+netname = node['tinc']['netname']
 
 all_data.each do |n|
   this_node = data_bag_item('tinc_followers', n)
